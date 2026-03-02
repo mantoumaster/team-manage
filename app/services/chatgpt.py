@@ -352,7 +352,16 @@ class ChatGPTService:
         if identifier == "default":
             identifier = f"rt_{refresh_token[:8]}"
 
-        return await self._make_request("POST", url, headers, json_data, db_session, identifier)
+        result = await self._make_request("POST", url, headers, json_data, db_session, identifier)
+        if result["success"]:
+            data = result.get("data", {})
+            return {
+                "success": True,
+                "access_token": data.get("access_token"),
+                "refresh_token": data.get("refresh_token"),
+                "data": data
+            }
+        return result
 
     async def clear_session(self, identifier: str):
         """清理指定身份的会话"""
