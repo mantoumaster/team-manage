@@ -369,6 +369,24 @@ python init_db.py
 2. 检查 Token 是否过期
 3. 验证 Token 是否有 Team 管理权限
 
+### 群辉 Docker 构建时报 `exclude-patterns` 非 ASCII 错误
+
+如果在群辉 NAS / Container Manager 上执行 `docker compose up -d` 时出现类似下面的错误：
+
+```text
+failed to solve: ... header key "exclude-patterns" contains value with non-printable ASCII characters
+```
+
+通常是因为较旧的 BuildKit 实现无法处理 `.dockerignore` 中的非 ASCII 文件名模式。
+
+当前仓库已经改为仅使用 ASCII 的忽略规则。如果你是从旧版本更新上来的，请执行：
+
+```bash
+git pull
+docker compose build --no-cache
+docker compose up -d
+```
+
 ## 📄 许可证
 
 本项目仅供学习和研究使用。

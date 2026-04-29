@@ -16,9 +16,6 @@ env/
 docker-compose.yml
 Dockerfile
 .dockerignore
-README.md
-任务.md
-需求.md
-接口.md
+*.md
 auggie_help.txt
 openai-api.md
