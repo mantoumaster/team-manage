@@ -2,6 +2,8 @@
 
 一个基于 FastAPI 的 ChatGPT Team 账号管理系统，支持管理员批量管理 Team 账号，用户通过兑换码自动加入 Team。
 
+本项目更新放缓，推荐另一个佬的项目 https://github.com/loLollipop/team-manage-refresh
+
 ## 🚀 Docker 一键部署 & 更新
 
 ### 一键部署
